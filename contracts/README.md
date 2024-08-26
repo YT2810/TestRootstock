@@ -30,7 +30,22 @@ Para trabajar con este proyecto, asegúrate de tener las siguientes herramientas
     rustc --version
     cargo --version
     ```
-    
+
+## Configuración del Entorno
+
+1. **Crear el Archivo `.env`**
+
+   Crea un archivo `.env` en la raíz del proyecto y añade las siguientes variables:
+
+   ```plaintext
+   ROOTSTOCK_RPC_URL=https://rpc.testnet.rootstock.io/{YOUR_APIKEY}
+   PRIVATE_KEY=0x...
+   Reemplaza {YOUR_APIKEY} con tu API key de Rootstock Testnet y 0x... con tu clave privada.
+
+Obtener Fondos de Prueba
+
+Para obtener fondos de prueba (tRBTC), configura MetaMask para Rootstock Testnet y utiliza el faucet de Rootstock Testnet.
+
 ## Usage
 
 ### Build
