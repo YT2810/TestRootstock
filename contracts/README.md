@@ -117,10 +117,36 @@ $ cast --help
 
 ### Interactuar con el Contrato Desplegado
 
+### Obtener el Nonce Actual:
+
 ```shell
-$ cast send --rpc-url $ROOTSTOCK_RPC_URL --private-key $PRIVATE_KEY <contract_address> "functionName(<params>)"
+$ cast nonce <tu_direccion> --rpc-url $ROOTSTOCK_RPC_URL
 ```
 
-Reemplaza <contract_address> con la dirección del contrato desplegado y functionName con el nombre de la función que deseas llamar.
+### Enviar Transacciones al Contrato
+
+Verificar el Numero actual del COntrato
+
+```shell
+$ cast call <direccion_contrato> "number()" --rpc-url $ROOTSTOCK_RPC_URL
+```
+### Verificar la Función `setNumber()`
+
+```shell
+$ cast send <direccion_contrato> "setNumber(uint256)" 42 --rpc-url $ROOTSTOCK_RPC_URL --private-key $PRIVATE_KEY --gas-limit 100000 --gas-price 60000000 --value 0 --nonce <nonce_actual> --legacy
+```
+
+### Verificar la Función `increment()`
+
+1. **Incrementar el Valor**: Usa el siguiente comando para incrementar el valor de `number` en el contrato:
+
+   ```bash
+   cast send <direccion_contrato> "increment()" --rpc-url $ROOTSTOCK_RPC_URL --private-key $PRIVATE_KEY --gas-limit 100000 --gas-price 60000000 --value 0 --nonce <nonce_actual> --legacy
+     
+2. **Verificar el Nuevo Valor**: Verifica que el valor de number haya incrementado en 1 usando:
+
+```bash
+cast call <direccion_contrato> "number()" --rpc-url $ROOTSTOCK_RPC_URL
+
 
 
