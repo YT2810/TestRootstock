@@ -13,6 +13,24 @@ Foundry consists of:
 
 https://book.getfoundry.sh/
 
+## Prerrequisitos
+
+Para trabajar con este proyecto, asegúrate de tener las siguientes herramientas instaladas:
+
+- **Rust y Cargo**: Necesarios para la compilación de contratos inteligentes con Foundry.
+    - Para instalar Rust y Cargo, ejecuta el siguiente comando en tu terminal:
+
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
+
+    - Verifica la instalación ejecutando:
+
+    ```bash
+    rustc --version
+    cargo --version
+    ```
+    
 ## Usage
 
 ### Build
