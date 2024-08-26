@@ -60,6 +60,7 @@ $ forge build
 $ forge test
 ```
 
+
 ### Format
 
 ```shell
@@ -80,9 +81,25 @@ $ anvil
 
 ### Deploy
 
+Cargar las Variables de entorno
+
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ source .env
 ```
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url $ROOTSTOCK_RPC_URL --broadcast --legacy
+```
+Nota: El flag --legacy es necesario para Rootstock porque no soporta EIP-1559.
+
+Verificar el Despliegue:
+
+Puedes verificar el contrato desplegado en Rootstock Testnet Explorer.
+
+
+### Contrato Desplegado
+Dirección del Contrato: 0x603CB2Ea788542f48990A4e393025045428bFaB9
+Hash Transacción de Despliegue: 0xc0fcbf4ffc4d618fd9c632f4f0dc215094faaa0e7115adcb9ab1c63818838e2f
 
 ### Cast
 
@@ -97,3 +114,13 @@ $ forge --help
 $ anvil --help
 $ cast --help
 ```
+
+### Interactuar con el Contrato Desplegado
+
+```shell
+$ cast send --rpc-url $ROOTSTOCK_RPC_URL --private-key $PRIVATE_KEY <contract_address> "functionName(<params>)"
+```
+
+Reemplaza <contract_address> con la dirección del contrato desplegado y functionName con el nombre de la función que deseas llamar.
+
+
